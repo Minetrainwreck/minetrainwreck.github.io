@@ -7,12 +7,12 @@ var snowmanright = ellipse(350,y2,50,50);
 var draw = function() {
     background(255, 255, 255);
     
-    if (key.toString() === 'w') {
+    if (keyIsPressed && key.toString() === 'w') {
             y1--;
     } else
     {snowmanleft=ellipse(50,y1,50,50); ellipse(50,y1,25,25);
     }
-    if (key.toString() === 's') {
+    if (keyIsPressed && key.toString() === 's') {
             y1++;
     } else
     {snowmanleft=ellipse(50,y1,50,50);ellipse(50,y1,25,25);
@@ -24,13 +24,9 @@ var draw = function() {
     }
     if (keyIsPressed && keyCode === DOWN)
     {
-        y2++; 
-    {
-            y2++;
+        y2++;
     }
     {snowmanright=ellipse(350,y2,50,50);ellipse(350,y2,25,25);
-}
-
 }
 
 };
