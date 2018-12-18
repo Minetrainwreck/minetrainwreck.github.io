@@ -1,5 +1,3 @@
-# minetrainwreck.github.io
-game thing 
 var y1= 200;
 var y2=200;
 var snowmanleft = ellipse(50,y1,50,50);
