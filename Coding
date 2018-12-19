@@ -1,4 +1,4 @@
-https://www.khanacademy.org/computer-programming/spin-off-of-call-of-snowman-2/5169590267445248
+https://www.khanacademy.org/computer-programming/spin-off-of-call-of-snowman-2/5401830167576576
 
 var y1= 200;
 var y2=200;
@@ -6,8 +6,12 @@ var x1= 50;
 var x2= 350;
 var snowmanleft = ellipse(50,y1,50,50);
 var snowmanright = ellipse(350,y2,50,50);
+var snowball = ellipse(x1,50,25,25);
+var snowball2 = ellipse(x1,50,25,25);
 var draw = function() {
+    
     background(255, 255, 255);
+    
     image(getImage("space/background"), 0, 0, 400, 400);
     
     if (keyIsPressed && key.toString() === 'w') {
@@ -16,22 +20,37 @@ var draw = function() {
     } else
     {snowmanleft=ellipse(50,y1,50,50); ellipse(50,y1,25,25);
     }
+ 
     if (keyIsPressed && key.toString() === 's') {
             y1++;
             println("left snowman"+y1+","+x1);
     } else
     {snowmanleft=ellipse(50,y1,50,50);ellipse(50,y1,25,25);
     }
+ 
     if (keyIsPressed && keyCode === UP) {
             y2--;
     } else
     {snowmanright=ellipse(350,y2,50,50); ellipse(350,y2,25,25);
     }
+ 
     if (keyIsPressed && keyCode === DOWN)
     {
         y2++;
     }
     {snowmanright=ellipse(350,y2,50,50);ellipse(350,y2,25,25);
-}
+    }   
+ 
+    if (keyIsPressed && key.toString() === 'r') {
+            x1--;
+    } else
+    {snowball=ellipse(x1,y1,20,20);
+    }
+ 
+    if (keyIsPressed && key.toString() === 'r') {
+            x1--;
+    } else
+    {snowball2=ellipse(x1,y1,20,20);
+    }
 
 };
