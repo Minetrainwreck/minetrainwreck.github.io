@@ -1,4 +1,4 @@
-https://www.khanacademy.org/computer-programming/spin-off-of-call-of-snowman-2/4975638738272256
+https://www.khanacademy.org/computer-programming/spin-off-of-call-of-snowman-2/5169590267445248
 
 var y1= 200;
 var y2=200;
@@ -8,6 +8,7 @@ var snowmanleft = ellipse(50,y1,50,50);
 var snowmanright = ellipse(350,y2,50,50);
 var draw = function() {
     background(255, 255, 255);
+    image(getImage("space/background"), 0, 0, 400, 400);
     
     if (keyIsPressed && key.toString() === 'w') {
             y1--;
@@ -17,6 +18,7 @@ var draw = function() {
     }
     if (keyIsPressed && key.toString() === 's') {
             y1++;
+            println("left snowman"+y1+","+x1);
     } else
     {snowmanleft=ellipse(50,y1,50,50);ellipse(50,y1,25,25);
     }
