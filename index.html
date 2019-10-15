@@ -1,42 +1,144 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Call Of Snowmen</title>
-    </head>
-    <body>
-
-    <h1>All about snow!</h1>
-    
-    <img src="http://justfunfacts.com/wp-content/uploads/2017/12/snowman-2.jpg" alt="...Loading..." width="500">
-    
-    <h2>Basic info</h2>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+</head>
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
         
-    <p>Game making still in progress...</p>
+        // ProgramCodeGoesHere
+        <!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+</head>
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        // ProgramCodeGoesHere
+        var Beaver = function(x, y) {
+    this.x = x;
+    this.y = y;
+    this.img = getImage("creatures/Hopper-Happy");
+    this.sticks = 0;
+};
+
+Beaver.prototype.draw = function() {
+    this.y = constrain(this.y, 0, height-50);
+    image(this.img, this.x, this.y, 40, 40);
+};
+
+Beaver.prototype.hop = function() {
+    this.img = getImage("creatures/Hopper-Jumping");
+    this.y -= 5;
+};
+
+Beaver.prototype.fall = function() {
+    this.img = getImage("creatures/Hopper-Happy");
+    this.y += 5;
+};
+
+var Stick = function(x, y) {
+    this.x = x;
+    this.y = y;
+};
+
+Stick.prototype.draw = function() {
+    fill(89, 71, 0);
+    rect(this.x, this.y, 5, 40);
+};
+
+var beaver = new Beaver(200, 300);
+
+var sticks = [];
+for (var i = 0; i < 40; i++) {  
+    sticks.push(new Stick(i * 40 + 300, random(20, 260)));
+}
+
+var grassXs = [];
+for (var i = 0; i < 25; i++) { 
+    grassXs.push(i*20);
+}
+
+draw = function() {
     
-    <h2>Random song</h2>
+    // static
+    background(227, 254, 255);
+    fill(130, 79, 43);
+    rect(0, height*0.90, width, height*0.10);
     
-    <p>Little Bunny Foo Foo, <br>
-I don't want to see you <br>
-scooping up the field mice <br>
-and bopping them on the head!</p>
+    for (var i = 0; i < grassXs.length; i++) {
+        image(getImage("cute/GrassBlock"), grassXs[i], height*0.85, 20, 20);
+        grassXs[i] -= 1;
+        if (grassXs[i] <= -20) {
+            grassXs[i] = width;
+        }
+    }
+    
+    for (var i = 0; i < sticks.length; i++) {
+        sticks[i].draw();
+        sticks[i].x -= 1;
+    }
+    
+    
+    if (keyIsPressed && key.code === 32) {
+        beaver.hop();
+    } else {
+        beaver.fall();
+    }
+    beaver.draw();
+};
 
 
-    <h3>Why snowmen don't make great pets</h3>
-    
-    <ul>
-        <li>They're cold!</li>
-        <li>Bad listeners</li>
-        <li>Melt if left inside a house or the sun</li>
-    </ul>
-    
-    <h3>Top 3 most famous snowmen</h3>
-    
-    <ol>
-        <li>Frosty</li>
-        <li>That one guy from polar express</li>
-        <li>The snowmen in your niehborhood</li>
-    </ol>
-    
-    </body>
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
 </html>
