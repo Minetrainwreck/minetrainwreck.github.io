@@ -1,0 +1,47 @@
+/*Selector {
+	Property: Value;
+}*/
+
+body{
+	background-image: url(image1.png);
+	background-size: cover;
+	background-blend-mode: screen;
+	text-align: center;
+}
+
+h2 {
+	font-size: 50px;
+	color: #E90016;
+	text-align: center;
+	border: 10px solid rgb(255, 37, 58, .5);
+	cursor: pointer;
+}
+
+h3 {
+	color: green;
+}
+
+li {
+	/*list-style: none;
+	display: inline-block;*/
+	list-style: none;
+	color: red;
+}
+a {
+	color: red;
+}
+.webtext {
+	border: 5px dashed green;
+	color: red
+}
+.active {
+	color: red
+}
+
+#div1 {
+	background-color: rgb(0, 0, 255, 0.2);
+}
+
+#div2 {
+	background-color: rgb(255, 0, 0, 0.2);
+}
